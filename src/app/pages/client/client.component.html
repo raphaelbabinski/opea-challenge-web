@@ -1,0 +1,21 @@
+<div class="content" role="main">
+  <h2>Detalhes do Cliente</h2>
+  <div class="card-container">
+    <form [formGroup]="clientForm">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="identifier">
+        <label>Nome*</label>
+        <br />
+        <input matInput autocomplete="off" appEnterNext formControlName="name" type="tel" required style="width: 300px;">
+        <br /><br />
+        <label>Porte da Empresa*</label>
+        <br />
+        <select formControlName="companySizeId" placeholder="Selecione o porte da empresa" matNativeControl required style="width: 300px;">
+          <option *ngFor="let size of companySizes" [value]="size.id">{{size.name}}</option>
+        </select>
+        <br /><br />
+        <button mat-flat-button (click)="back()" type="submit">VOLTAR</button>
+        <button mat-flat-button (click)="save()" type="submit" style="margin-left: 10px;">SALVAR</button>
+    </form>
+  </div>
+</div>

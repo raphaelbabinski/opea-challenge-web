@@ -1,0 +1,30 @@
+<div class="content" role="main">
+  <h2>Meus Clientes</h2>
+  <button mat-flat-button color="primary" (click)="detaislClient(null)" style="align-self: end;">NOVO CLIENTE</button>
+  <div class="card-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 200px; text-align: center;">#</th>
+            <th style="width: 200px; text-align: left;">Nome</th>
+            <th style="width: 200px; text-align: left;">Porte da Empresa</th>
+            <th style="width: 200px; text-align: left;">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <th scope="row">{{client.id}}</th>
+            <td>{{client.name}}</td>
+            <td>{{client.companySize.name}}</td>
+            <td>
+              <button mat-flat-button color="primary" (click)="detaislClient(client.identifier)">DETALHES</button>
+              <button mat-flat-button color="primary" (click)="removeClient(client.identifier)">REMOVER</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="clients.length === 0" style="margin-top: 20px;">
+        <p>Nenhum cliente encontrado</p>
+      </div>
+  </div>
+</div>
